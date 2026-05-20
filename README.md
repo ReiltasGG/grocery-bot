@@ -78,11 +78,29 @@ source venv/bin/activate
 ```
 
 **3. Install dependencies**
+
+For `grocery.py` and `recipe_finder.py` only:
+```bash
+pip install requests
+```
+
+For `recipe_finder_v2.py` (includes all dependencies):
 ```bash
 pip install requests reportlab pillow
 ```
 
-**4. Start Ollama (required for grocery.py and recipe_finder.py)**
+**4. Check your Ollama model name**
+
+Before running `grocery.py` or `recipe_finder.py`, confirm your exact model name by running:
+```bash
+ollama list
+```
+Open the file you want to run and update the model name on this line to match:
+```python
+"model": "gemma4:e4b",  # replace with your model name from ollama list
+```
+
+**5. Start Ollama (required for grocery.py and recipe_finder.py)**
 ```bash
 ollama serve
 ```
